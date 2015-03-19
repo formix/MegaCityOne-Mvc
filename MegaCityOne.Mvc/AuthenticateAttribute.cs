@@ -9,16 +9,16 @@ using System.Web.Mvc.Filters;
 
 namespace MegaCityOne.Mvc
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class AuthenticateAttribute : ActionFilterAttribute, IAuthenticationFilter
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true)]
+    public abstract class AuthenticateAttribute : ActionFilterAttribute, IAuthenticationFilter
     {
         public void OnAuthentication(AuthenticationContext filterContext)
         {
-            var user = (UserData)filterContext.HttpContext.Session["User"];
-            if (user != null)
+            var userInfo = (UserInfo)SecuritySession.GetUserInfo(filterContext.HttpContext);
+            if (userInfo != null)
             {
                 filterContext.HttpContext.User = new GenericPrincipal(
-                    new GenericIdentity(user.Name), user.Roles);
+                    new GenericIdentity(userInfo.Name), userInfo.Roles);
             }
 
         }

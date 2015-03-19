@@ -27,7 +27,7 @@ namespace MegaCityOne.Example.Mvc
                 var startTime = DateTime.MinValue.AddHours(1); 
                 var endTime = DateTime.MinValue.AddHours(23); // Dunno if MinValue is UTC or Local though...
                 var time = DateTime.MinValue.Add(
-                    DateTime.UtcNow.Subtract(DateTime.UtcNow.Date));
+                    DateTime.Now.Subtract(DateTime.Now.Date));
 
                 return principal.IsInRole("ProjectManager")  &&
                     (time.CompareTo(startTime) >= 0) && 

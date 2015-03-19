@@ -6,13 +6,13 @@ using System.Text;
 namespace MegaCityOne.Mvc
 {
     [Serializable]
-    public class UserData
+    public class UserInfo
     {
         public string Name { get; set; }
         public string[] Roles { get; set; }
         public IDictionary<string, object> Data { get; set; }
 
-        public UserData()
+        public UserInfo()
         {
             this.Name = "";
             this.Roles = new string[0];

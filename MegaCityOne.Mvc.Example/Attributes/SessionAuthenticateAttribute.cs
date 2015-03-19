@@ -1,4 +1,4 @@
-﻿using MegaCityOne.Example.Mvc.Data;
+﻿using MegaCityOne.Mvc;
 using System;
 using System.Security.Principal;
 using System.Web.Mvc;
@@ -11,11 +11,11 @@ namespace MegaCityOne.Example.Mvc.Attributes
     {
         public void OnAuthentication(AuthenticationContext filterContext)
         {
-            var user = (UserData)filterContext.HttpContext.Session["User"];
+            var user = (UserInfo)filterContext.HttpContext.Session["User"];
             if (user != null)
             {
                 filterContext.HttpContext.User = new GenericPrincipal(
-                    new GenericIdentity(user.Name), user.Roles.Split(';'));
+                    new GenericIdentity(user.Name), user.Roles);
             }
 
         }
