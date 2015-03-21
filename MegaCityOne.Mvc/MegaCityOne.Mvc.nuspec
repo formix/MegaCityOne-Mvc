@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/formix/MegaCityOne-Mvc/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/formix/MegaCityOne-Mvc</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/formix/MegaCityOne/master/MegaCityOne-MVC/Images/MegaCityOne-Mvc.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <summary>
+      MegaCityOne is an authorization library that plugs into any kind of
+      authentication system available. You can use JudgeDredd to handle your
+      laws defined as lambda expressions or JudgeAnderson if your are the
+      server-side JavaScript kind. You are The Law!
+    </summary>
+    <releaseNotes>First release of the library!</releaseNotes>
+    <copyright>Copyright 2015 formix.org</copyright>
+    <tags>Security, Authorization, MVC</tags>
+  </metadata>
+</package>

@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MegaCityOne.Mvc")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("MegaCityOne MVC 5 libary")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("formix.org")]
 [assembly: AssemblyProduct("MegaCityOne.Mvc")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
