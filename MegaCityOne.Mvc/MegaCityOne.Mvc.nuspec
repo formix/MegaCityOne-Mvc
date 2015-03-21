@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://raw.githubusercontent.com/formix/MegaCityOne-Mvc/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/formix/MegaCityOne-Mvc</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/formix/MegaCityOne/master/MegaCityOne-MVC/Images/MegaCityOne-Mvc.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/formix/MegaCityOne/master/MegaCityOne-Mvc/Images/MegaCityOne-Mvc.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <summary>
