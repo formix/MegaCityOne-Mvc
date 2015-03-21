@@ -8,7 +8,7 @@ namespace MegaCityOne.Mvc
 {
     /// <summary>
     /// This attribute leverage MegaCityOne's Judge security for MVC 
-    /// applications. The rule to be advised is mandatory. 
+    /// applications.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public class JudgeAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
@@ -16,7 +16,7 @@ namespace MegaCityOne.Mvc
         /// <summary>
         /// The rule to be advised by the Judge upon authorization request.
         /// </summary>
-        public string Rule { get; set; }
+        public string Rule { get; private set; }
 
         /// <summary>
         /// Creates an instance of a JudgeAuthorizeAttribute.
@@ -66,7 +66,7 @@ namespace MegaCityOne.Mvc
 
             IPrincipal originalPrincipal = Thread.CurrentPrincipal;
             Thread.CurrentPrincipal = httpContext.User;
-            bool advisal = JudgeDispatcher.Advise(this.Rule, HttpContext.Current);
+            bool advisal = McoDispatcher.Advise(this.Rule, HttpContext.Current);
             Thread.CurrentPrincipal = originalPrincipal;
             return advisal;
         }

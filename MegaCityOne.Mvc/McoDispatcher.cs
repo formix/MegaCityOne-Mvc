@@ -19,7 +19,7 @@ namespace MegaCityOne.Mvc
     /// member Dispatcher.Current to use an instance of this class. This class
     /// is thread safe.
     /// </summary>
-    public sealed class JudgeDispatcher
+    public sealed class McoDispatcher
     {
         #region Events
 
@@ -28,13 +28,13 @@ namespace MegaCityOne.Mvc
         /// thread id. The event handler is expected to create a Judge,
         /// provide it with laws and attach it the the event args.
         /// </summary>
-        public event SummonDelegate Summon;
+        public event JudgeSummonDelegate Summon;
 
         #endregion
 
         #region Fields
 
-        private static JudgeDispatcher current = null;
+        private static McoDispatcher current = null;
 
         private Stack<Judge> judgePool;
         private HashSet<int> dispatchedJudges;
@@ -46,13 +46,13 @@ namespace MegaCityOne.Mvc
         /// <summary>
         /// The static dispatcher instance for the current application.
         /// </summary>
-        public static JudgeDispatcher Current
+        public static McoDispatcher Current
         {
             get
             {
                 if (current == null)
                 {
-                    current = new JudgeDispatcher();
+                    current = new McoDispatcher();
                 }
                 return current;
             }
@@ -76,7 +76,7 @@ namespace MegaCityOne.Mvc
 
         #region Constructors
 
-        private JudgeDispatcher()
+        private McoDispatcher()
         {
             this.judgePool = new Stack<Judge>();
             this.dispatchedJudges = new HashSet<int>();
@@ -157,7 +157,7 @@ namespace MegaCityOne.Mvc
             {
                 if (this.judgePool.Count == 0)
                 {
-                    SummonEventArgs e = new SummonEventArgs();
+                    JudgeSummonEventArgs e = new JudgeSummonEventArgs();
                     this.OnSummon(e);
                     if (e.Respondent == null)
                     {
@@ -203,7 +203,7 @@ namespace MegaCityOne.Mvc
         /// Method used to fire a Summon event.
         /// </summary>
         /// <param name="e">The event arguments.</param>
-        private void OnSummon(SummonEventArgs e)
+        private void OnSummon(JudgeSummonEventArgs e)
         {
             if (this.Summon != null)
             {

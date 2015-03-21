@@ -1,5 +1,4 @@
-﻿using MegaCityOne.Example.Mvc.Attributes;
-using MegaCityOne.Example.Mvc.Models;
+﻿using MegaCityOne.Example.Mvc.Models;
 using MegaCityOne.Mvc;
 using System.Collections.Generic;
 using System.Security.Principal;
@@ -7,18 +6,18 @@ using System.Web.Mvc;
 
 namespace MegaCityOne.Example.Mvc.Controllers
 {
-    [SessionAuthenticate]
+    [McoAuthenticate]
     public class HomeController : Controller
     {
         [AllowAnonymous]
         public ActionResult Index()
         {
-            if (Session["User"] != null)
+            McoCitizen citizen = McoSession.GetCitizen(HttpContext);
+            if (citizen != null)
             {
-                UserInfo userData = (UserInfo)Session["User"];
                 var homeModel = new HomeModel();
-                homeModel.User = userData.Name;
-                foreach (var role in userData.Roles)
+                homeModel.User = citizen.Name;
+                foreach (var role in citizen.Roles)
                 {
                     homeModel.SetSelected(role, true);
                 }
@@ -47,16 +46,9 @@ namespace MegaCityOne.Example.Mvc.Controllers
                 }
             }
 
-            var user = new UserInfo()
-            {
-                Name = model.User,
-                Roles = roles.ToArray()
-            };
-
-            Session["User"] = user;
-
-            HttpContext.User = new GenericPrincipal(
-                new GenericIdentity(user.Name), user.Roles);
+            McoSession.Login(
+                HttpContext, 
+                new McoCitizen(model.User, roles.ToArray()));
 
             return View(model);
         }
@@ -66,7 +58,7 @@ namespace MegaCityOne.Example.Mvc.Controllers
         public ActionResult Logoff()
         {
             Session["User"] = null;
-            HttpContext.User = new GenericPrincipal(new GenericIdentity(""), new string[0]);
+            McoSession.Logoff(HttpContext);
             return Redirect("~/Home/Index");
         }
 

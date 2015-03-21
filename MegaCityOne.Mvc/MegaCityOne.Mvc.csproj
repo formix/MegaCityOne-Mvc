@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MegaCityOne.Mvc.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,21 +52,27 @@
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticateAttribute.cs" />
+    <Compile Include="McoAuthenticateAttribute.cs" />
     <Compile Include="JudgeAuthorizeAttribute.cs" />
-    <Compile Include="JudgeDispatcher.cs" />
+    <Compile Include="McoDispatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecuritySession.cs" />
-    <Compile Include="SummonDelegate.cs" />
-    <Compile Include="SummonEventArgs.cs" />
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="McoSession.cs" />
+    <Compile Include="JudgeSummonDelegate.cs" />
+    <Compile Include="JudgeSummonEventArgs.cs" />
+    <Compile Include="McoCitizen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="doc\api.md" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>x2md "$(TargetDir)MegaCityOne.Mvc.xml" &gt; "$(ProjectDir)doc\api.md"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

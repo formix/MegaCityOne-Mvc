@@ -9,7 +9,7 @@ namespace MegaCityOne.Mvc
     /// <summary>
     /// Event arguments for a Dispatcher.Summon event.
     /// </summary>
-    public class SummonEventArgs : EventArgs
+    public class JudgeSummonEventArgs : EventArgs
     {
         /// <summary>
         /// The Judge who answers the summoning from the Dispatcher.
@@ -19,7 +19,7 @@ namespace MegaCityOne.Mvc
         /// <summary>
         /// Creates an instance of SummonEventArgs.
         /// </summary>
-        public SummonEventArgs()
+        public JudgeSummonEventArgs()
         {
             this.Respondent = null;
         }

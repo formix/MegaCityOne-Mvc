@@ -8,13 +8,13 @@ namespace MegaCityOne.Example.Mvc
 {
     public class JudgeConfig
     {
-        public static void RegisterJudge(JudgeDispatcher dispatcher)
+        public static void RegisterJudge(McoDispatcher dispatcher)
         {
             dispatcher.Summon += dispatcher_Summon;
         }
 
 
-        static void dispatcher_Summon(object source, SummonEventArgs e)
+        static void dispatcher_Summon(object source, JudgeSummonEventArgs e)
         {
             JudgeDredd dredd = new JudgeDredd();
             

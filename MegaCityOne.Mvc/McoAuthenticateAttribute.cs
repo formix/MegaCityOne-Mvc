@@ -9,20 +9,36 @@ using System.Web.Mvc.Filters;
 
 namespace MegaCityOne.Mvc
 {
+    /// <summary>
+    /// Attribute is used to authenticate the current HttpContext.User with 
+    /// the IPrincipal generated using the current logged McoCitizen in the 
+    /// current McoSession.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true)]
-    public abstract class AuthenticateAttribute : ActionFilterAttribute, IAuthenticationFilter
+    public class McoAuthenticateAttribute : ActionFilterAttribute, IAuthenticationFilter
     {
+        /// <summary>
+        /// Sets the filterContext.HttpContext.User to the principal built 
+        /// from the McoCitizen of the current McoSession (if there is any 
+        /// McoCitizen in the session).
+        /// </summary>
+        /// <param name="filterContext">The context of the current 
+        /// ActionFilter</param>
         public void OnAuthentication(AuthenticationContext filterContext)
         {
-            var userInfo = (UserInfo)SecuritySession.GetUserInfo(filterContext.HttpContext);
-            if (userInfo != null)
+            McoCitizen citizen = McoSession.GetCitizen(filterContext.HttpContext);
+            if (citizen != null)
             {
-                filterContext.HttpContext.User = new GenericPrincipal(
-                    new GenericIdentity(userInfo.Name), userInfo.Roles);
+                filterContext.HttpContext.User = citizen.Principal;
             }
-
         }
 
+        /// <summary>
+        /// Verifies if the user associated with the current HttpContext is 
+        /// authenticated.
+        /// </summary>
+        /// <param name="filterContext">The context of the current 
+        /// ActionFilter</param>
         public void OnAuthenticationChallenge(AuthenticationChallengeContext filterContext)
         {
             if (AllowAnonymous(filterContext))

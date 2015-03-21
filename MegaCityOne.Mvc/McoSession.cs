@@ -9,39 +9,52 @@ using System.Web;
 
 namespace MegaCityOne.Mvc
 {
-    public static class SecuritySession
+    /// <summary>
+    /// This static class offer methods to manage a Mega-City One session .
+    /// </summary>
+    public static class McoSession
     {
 
-        public static void Login(HttpContextBase context, UserInfo userInfo)
+        /// <summary>
+        /// Register the given citizen in the current Mega-City One session.
+        /// </summary>
+        /// <param name="context">The HttpContext of the current request</param>
+        /// <param name="citizen">The Mega-City One citizen</param>
+        public static void Login(HttpContextBase context, McoCitizen citizen)
         {
             if (context == null)
             {
                 throw new ArgumentNullException("context");
             }
-            if (userInfo == null)
+            if (citizen == null)
             {
                 throw new ArgumentNullException("user");
             }
 
             Logoff(context);  // Cleanse the context before proceeding
             string securitySessionId = Guid.NewGuid().ToString();
-            DateTime expiration = DateTime.Now.AddMonths(6);
+            DateTime expiration = DateTime.Now.AddDays(1);
             context.Response.Cookies.Set(new HttpCookie("mco", securitySessionId)
             {
                 Expires = expiration,
                 HttpOnly = true
             });
 
-            userInfo.Data["__host"] = context.Request.UserHostAddress;
-            MemoryCache.Default.Add(securitySessionId, userInfo, new DateTimeOffset(expiration));
+            citizen.Data["UserHostAddress"] = context.Request.UserHostAddress;
+            MemoryCache.Default.Add(securitySessionId, citizen, new DateTimeOffset(expiration));
 
-            LogManager.GetLogger("MegaCityOne.Mvc.SecuritySession").Info(
+            LogManager.GetLogger("MegaCityOne.Mvc.McoSession").Info(
             string.Format("User session started for '{0}' from [{1}].",
-            userInfo.Name,
+            citizen.Name,
             context.Request.UserHostAddress));
+
+            context.User = citizen.Principal;
         }
 
-
+        /// <summary>
+        /// Unregister the registered Mega-City One citizen from the session.
+        /// </summary>
+        /// <param name="context">The HttpContext of the current request.</param>
         public static void Logoff(HttpContextBase context)
         {
             if (context == null)
@@ -54,9 +67,9 @@ namespace MegaCityOne.Mvc
             {
                 if (MemoryCache.Default.Contains(mcoCookie.Value))
                 {
-                    UserInfo userInfo = (UserInfo)MemoryCache.Default.Get(mcoCookie.Value); 
+                    McoCitizen userInfo = (McoCitizen)MemoryCache.Default.Get(mcoCookie.Value); 
                     MemoryCache.Default.Remove(mcoCookie.Value);
-                    LogManager.GetLogger("MegaCityOne.Mvc.SecuritySession").Info(
+                    LogManager.GetLogger("MegaCityOne.Mvc.McoSession").Info(
                     string.Format("User session terminated for '{0}' from [{1}].",
                     userInfo.Name,
                     context.Request.UserHostAddress));
@@ -66,8 +79,12 @@ namespace MegaCityOne.Mvc
             }
         }
 
-
-        public static UserInfo GetUserInfo(HttpContextBase context)
+        /// <summary>
+        /// Retrieves the 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static McoCitizen GetCitizen(HttpContextBase context)
         {
             if (context == null)
             {
@@ -80,26 +97,26 @@ namespace MegaCityOne.Mvc
                 return null;
             }
 
-            UserInfo userInfo = (UserInfo)MemoryCache.Default.Get(mcoCookie.Value);
-            if (userInfo == null)
+            McoCitizen citizen = (McoCitizen)MemoryCache.Default.Get(mcoCookie.Value);
+            if (citizen == null)
             {
                 mcoCookie.Expires = DateTime.Now.AddDays(-1d);
                 context.Response.SetCookie(mcoCookie);
                 return null;
             }
 
-            if (context.Request.UserHostAddress != ((string)userInfo.Data["__host"]))
+            if (context.Request.UserHostAddress != ((string)citizen.Data["UserHostAddress"]))
             {
                 LogManager.GetLogger("MegaCityOne.Mvc.SecuritySession").Warn(
                     string.Format("Request host address [{0}] do not match with stored user host address [{1}] for user '{2}'.",
                     context.Request.UserHostAddress,
-                    userInfo.Data["__host"],
-                    userInfo.Name));
+                    citizen.Data["UserHostAddress"],
+                    citizen.Name));
                 Logoff(context);
                 return null;
             }
 
-            return userInfo;
+            return citizen;
         }
     }
 }

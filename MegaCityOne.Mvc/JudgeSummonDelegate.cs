@@ -11,5 +11,5 @@ namespace MegaCityOne.Mvc
     /// </summary>
     /// <param name="source">The source of the event.</param>
     /// <param name="e">The Judge summon event args.</param>
-    public delegate void SummonDelegate(object source, SummonEventArgs e);
+    public delegate void JudgeSummonDelegate(object source, JudgeSummonEventArgs e);
 }
