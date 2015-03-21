@@ -55,6 +55,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MegaCityOne.Mvc.nuspec" />
     <Compile Include="McoAuthenticateAttribute.cs" />
     <Compile Include="JudgeAuthorizeAttribute.cs" />
     <Compile Include="McoDispatcher.cs" />
@@ -69,6 +70,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\MegaCityOne-Mvc.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>x2md "$(TargetDir)MegaCityOne.Mvc.xml" &gt; "$(ProjectDir)doc\api.md"</PostBuildEvent>
