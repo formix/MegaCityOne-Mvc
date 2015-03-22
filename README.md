@@ -13,7 +13,7 @@ MegaCityOne-MVC is available at
 installed as a package using VisualStudio NuGet package manager or via 
 NuGet command line:
 
-> Install-Package MegaCityOne-Mvc
+> Install-Package MegaCityOne.Mvc
 
 # Documentation
 
