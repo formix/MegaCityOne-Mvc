@@ -172,7 +172,12 @@ helper class.
 ```
 ## Note on Thread Safety
 
-Judge implementations aren't thread safe. This is why within an MVC web 
-context, you have to use the static class McoDispatcher and it's corresponding
-static methods to do thread safe call to the judge you defined in 
-MegaCityOneActivator class. 
+Always use `McoDispatcher` static class to Advise or Enforce within a Web 
+application. McoDispatcher static methods insure that thread safe calls are 
+made to the Respondent Judge. Judge implementations aren't thread safe.
+
+## Detailed Example
+
+To get the detailed Mvc example, clone the github project.
+
+> https://github.com/formix/MegaCityOne-Mvc.git
