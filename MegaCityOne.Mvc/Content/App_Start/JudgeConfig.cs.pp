@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MegaCityOne.Example.Mvc
+namespace $ProjectName$
 {
     public class JudgeConfig
     {
@@ -16,9 +16,11 @@ namespace MegaCityOne.Example.Mvc
 
         static void dispatcher_Summon(object source, JudgeSummonEventArgs e)
         {
-            JudgeDredd dredd = new JudgeDredd();
+
+            // *** This is an example, create your own rules here or use another Judge. *** \\
+            JudgeDredd judge = new JudgeDredd();
             
-            dredd.Laws.Add("CanCreateProject", (principal, arguments) =>
+            judge.Laws.Add("CanCreateProject", (principal, arguments) =>
             {
                 // HttpContext is always the first argument whe in MVC 
                 // context. Any other arguments can be found after this one.
@@ -36,12 +38,13 @@ namespace MegaCityOne.Example.Mvc
                     (time.CompareTo(endTime) < 0);
             });
 
-            dredd.Laws.Add("CanManageUsers", (principal, arguments) =>
+            judge.Laws.Add("CanManageUsers", (principal, arguments) =>
             {
                 return principal.IsInRole("Administrator");
             });
 
-            e.Respondent = dredd;
+            // *** Keep this line to return the configured judge. ***
+            e.Respondent = judge;
         }
     }
 }
