@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace MegaCityOne.Example.Mvc
+namespace MegaCityOne.Mvc.Example
 {
     public class BundleConfig
     {

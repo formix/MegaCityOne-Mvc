@@ -1,10 +1,10 @@
-﻿using MegaCityOne.Example.Mvc.Models;
+﻿using MegaCityOne.Mvc.Example.Models;
 using MegaCityOne.Mvc;
 using System.Collections.Generic;
 using System.Security.Principal;
 using System.Web.Mvc;
 
-namespace MegaCityOne.Example.Mvc.Controllers
+namespace MegaCityOne.Mvc.Example.Controllers
 {
     [McoAuthenticate]
     public class HomeController : Controller

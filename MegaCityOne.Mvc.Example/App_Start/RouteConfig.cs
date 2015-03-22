@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MegaCityOne.Example.Mvc
+namespace MegaCityOne.Mvc.Example
 {
     public class RouteConfig
     {

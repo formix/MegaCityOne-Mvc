@@ -40,6 +40,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MegaCityOne.2.0.2.0\lib\net45\MegaCityOne.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -55,8 +56,9 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="MegaCityOne.Mvc.nuspec" />
-    <None Include="Content\App_Start\JudgeConfig.cs.pp" />
+    <Content Include="App_Start\MegaCityOneActivator.cs.pp" />
     <Compile Include="McoAuthenticateAttribute.cs" />
     <Compile Include="JudgeAuthorizeAttribute.cs" />
     <Compile Include="McoDispatcher.cs" />
@@ -65,6 +67,8 @@
     <Compile Include="JudgeSummonDelegate.cs" />
     <Compile Include="JudgeSummonEventArgs.cs" />
     <Compile Include="McoCitizen.cs" />
+    <Content Include="Views\Web.config.install.xdt" />
+    <Content Include="Views\Web.config.uninstall.xdt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="doc\api.md" />

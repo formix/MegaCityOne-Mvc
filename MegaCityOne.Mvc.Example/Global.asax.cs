@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace MegaCityOne.Example.Mvc
+namespace MegaCityOne.Mvc.Example
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -15,7 +15,6 @@ namespace MegaCityOne.Example.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            JudgeConfig.RegisterJudge(McoDispatcher.Current);
         }
     }
 }

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.web.webPages.razor xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <pages pageBaseType="System.Web.Mvc.WebViewPage">
+      <namespaces>
+        <add namespace="MegaCityOne.Mvc" xdt:Transform="Remove" Locator="Match(namespace)"/>
+      </namespaces>
+    </pages>
+  </system.web.webPages.razor>
+</configuration>

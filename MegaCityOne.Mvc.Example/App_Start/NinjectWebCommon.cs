@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MegaCityOne.Example.Mvc.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MegaCityOne.Example.Mvc.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MegaCityOne.Mvc.Example.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MegaCityOne.Mvc.Example.App_Start.NinjectWebCommon), "Stop")]
 
-namespace MegaCityOne.Example.Mvc.App_Start
+namespace MegaCityOne.Mvc.Example.App_Start
 {
     using System;
     using System.Web;
