@@ -14,18 +14,18 @@ namespace MegaCityOne.Mvc
     public class JudgeAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
     {
         /// <summary>
-        /// The rule to be advised by the Judge upon authorization request.
+        /// The law to be advised by the Judge upon authorization request.
         /// </summary>
-        public string Rule { get; private set; }
+        public string Law { get; private set; }
 
         /// <summary>
         /// Creates an instance of a JudgeAuthorizeAttribute.
         /// </summary>
-        /// <param name="rule">The rule to be advised during the MVC 
+        /// <param name="law">The law to be advised during the MVC 
         /// authorize process.</param>
-        public JudgeAuthorizeAttribute(string rule)
+        public JudgeAuthorizeAttribute(string law)
         {
-            this.Rule = rule;
+            this.Law = law;
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace MegaCityOne.Mvc
 
             IPrincipal originalPrincipal = Thread.CurrentPrincipal;
             Thread.CurrentPrincipal = httpContext.User;
-            bool advisal = McoDispatcher.Advise(this.Rule, HttpContext.Current);
+            bool advisal = McoDispatcher.Advise(this.Law, HttpContext.Current);
             Thread.CurrentPrincipal = originalPrincipal;
             return advisal;
         }

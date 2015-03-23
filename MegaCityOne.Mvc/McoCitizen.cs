@@ -126,7 +126,7 @@ namespace MegaCityOne.Mvc
         /// By default, this virtual method creates A GenericPrincipal with 
         /// the informations available in the current citizen. The 
         /// GenericIdentity.BootstrapContext is set to the current citizen 
-        /// for references in rules. Override this method to create an 
+        /// for references in laws. Override this method to create an 
         /// IPrincipal corresponding to your application needs.
         /// </summary>
         /// <returns>A security Principal</returns>

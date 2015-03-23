@@ -17,7 +17,7 @@
       laws defined as lambda expressions or JudgeAnderson if your are the
       server-side JavaScript kind. You are The Law!
     </summary>
-    <releaseNotes>Updated nuget package, no code change.</releaseNotes>
+    <releaseNotes>Changed all occurences "rule" for "law"</releaseNotes>
     <copyright>Copyright 2015 formix.org</copyright>
     <tags>Security, Authorization, MVC</tags>
   </metadata>

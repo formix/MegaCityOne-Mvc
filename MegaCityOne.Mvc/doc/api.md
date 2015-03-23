@@ -7,13 +7,18 @@
 This attribute leverage MegaCityOne's Judge security for MVC applications.
 
 
-### Constructor(rule)
+### Constructor(law)
 
 Creates an instance of a JudgeAuthorizeAttribute.
 
 | Name | Description |
 | ---- | ----------- |
-| rule | *System.String*<br>The rule to be advised during the MVC authorize process. |
+| law | *System.String*<br>The law to be advised during the MVC authorize process. |
+
+### Law
+
+The law to be advised by the Judge upon authorization request.
+
 
 ### OnAuthorization(filterContext)
 
@@ -22,11 +27,6 @@ This method executes authorization based on the Judge returned by the MegaCityOn
 | Name | Description |
 | ---- | ----------- |
 | filterContext | *System.Web.Mvc.AuthorizationContext*<br>The authorization context. |
-
-### Rule
-
-The rule to be advised by the Judge upon authorization request.
-
 
 ## JudgeSummonDelegate
 
@@ -89,7 +89,7 @@ Creates an instance of an McoCitizen.
 
 ### CreatePrincipal
 
-By default, this virtual method creates A GenericPrincipal with the informations available in the current citizen. The GenericIdentity.BootstrapContext is set to the current citizen for references in rules. Override this method to create an IPrincipal corresponding to your application needs.
+By default, this virtual method creates A GenericPrincipal with the informations available in the current citizen. The GenericIdentity.BootstrapContext is set to the current citizen for references in laws. Override this method to create an IPrincipal corresponding to your application needs.
 
 
 #### Returns
