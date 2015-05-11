@@ -12,12 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <summary>
-      MegaCityOne is an authorization library that plugs into any kind of
-      authentication system available. You can use JudgeDredd to handle your
-      laws defined as lambda expressions or JudgeAnderson if your are the
-      server-side JavaScript kind. You are The Law!
+      The MVC 5 integration for MegaCityOne security.
     </summary>
-    <releaseNotes>Changed all occurences "rule" for "law"</releaseNotes>
+    <releaseNotes>Added support for HttpContext in McoSession class</releaseNotes>
     <copyright>Copyright 2015 formix.org</copyright>
     <tags>Security, Authorization, MVC</tags>
   </metadata>

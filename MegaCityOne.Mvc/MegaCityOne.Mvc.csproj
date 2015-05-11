@@ -57,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="MegaCityOne.Mvc.nuspec" />
+    <None Include="MegaCityOne.Mvc.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="App_Start\MegaCityOneActivator.cs.pp" />
     <Compile Include="McoAuthenticateAttribute.cs" />
     <Compile Include="JudgeAuthorizeAttribute.cs" />
