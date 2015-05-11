@@ -194,17 +194,40 @@ This static class offer methods to manage a Mega-City One session .
 
 ### GetCitizen(context)
 
-Retrieves the
+Retrieves the citizen from the given HttpContext.
 
 | Name | Description |
 | ---- | ----------- |
-| context | *System.Web.HttpContextBase*<br> |
+| context | *System.Web.HttpContext*<br>The current HttpContext |
 
 
 #### Returns
 
+An McoCitizen or null if none are logged-in
 
 
+### GetCitizen(context)
+
+Retrieves the citizen from the given HttpContext.
+
+| Name | Description |
+| ---- | ----------- |
+| context | *System.Web.HttpContextBase*<br>The current HttpContextBase |
+
+
+#### Returns
+
+An McoCitizen or null if none are logged-in
+
+
+### Login(context, citizen)
+
+Register the given citizen in the current Mega-City One session.
+
+| Name | Description |
+| ---- | ----------- |
+| context | *System.Web.HttpContext*<br>The HttpContext of the current request |
+| citizen | *MegaCityOne.Mvc.McoCitizen*<br>The Mega-City One citizen |
 
 ### Login(context, citizen)
 
@@ -221,5 +244,13 @@ Unregister the registered Mega-City One citizen from the session.
 
 | Name | Description |
 | ---- | ----------- |
-| context | *System.Web.HttpContextBase*<br>The HttpContext of the current request. |
+| context | *System.Web.HttpContext*<br>The HttpContext of the current request. |
+
+### Logoff(context)
+
+Unregister the registered Mega-City One citizen from the session.
+
+| Name | Description |
+| ---- | ----------- |
+| context | *System.Web.HttpContextBase*<br>The HttpContextBase of the current request. |
 
