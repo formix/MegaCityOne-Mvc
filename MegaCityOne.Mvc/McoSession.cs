@@ -52,12 +52,20 @@ namespace MegaCityOne.Mvc
             }
 
             Logoff(context);  // Cleanse the context before proceeding
+
             string securitySessionId = Guid.NewGuid().ToString();
             DateTime expiration = DateTime.Now.AddDays(1);
+            string domain = context.Request.Url.Host;
+            if (context.Request.UrlReferrer != null)
+            {
+                domain = context.Request.UrlReferrer.Host;
+            }
             context.Response.Cookies.Set(new HttpCookie("mco", securitySessionId)
             {
                 Expires = expiration,
-                HttpOnly = true
+                HttpOnly = true,
+                Domain = domain,
+                Path = "/"
             });
 
             string userHostAddress = GetUSerHostAddress(context.Request);

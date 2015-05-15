@@ -14,7 +14,7 @@
     <summary>
       The MVC 5 integration for MegaCityOne security.
     </summary>
-    <releaseNotes>Introduced dependency range specifications in the nuspec file.</releaseNotes>
+    <releaseNotes>Changed the McoSession to take into account reverse proxying.</releaseNotes>
     <copyright>Copyright 2015 formix.org</copyright>
     <tags>Security, Authorization, MVC</tags>
     <dependencies>
