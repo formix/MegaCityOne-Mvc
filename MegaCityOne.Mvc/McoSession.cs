@@ -60,11 +60,11 @@ namespace MegaCityOne.Mvc
             {
                 domain = context.Request.UrlReferrer.Host;
             }
+
             context.Response.Cookies.Set(new HttpCookie("mco", securitySessionId)
             {
                 Expires = expiration,
                 HttpOnly = true,
-                Domain = domain,
                 Path = "/"
             });
 
