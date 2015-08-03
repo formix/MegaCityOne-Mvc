@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -98,7 +98,10 @@ namespace MegaCityOne.Mvc
         public static bool Advise(string law, params object[] arguments)
         {
             IPrincipal oldPrincipal = Thread.CurrentPrincipal;
-            Thread.CurrentPrincipal = HttpContext.Current.User;
+            if (HttpContext.Current != null)
+            {
+                Thread.CurrentPrincipal = HttpContext.Current.User;
+            }
             Judge judge = Current.Dispatch();
             try
             {
@@ -110,8 +113,8 @@ namespace MegaCityOne.Mvc
             }
             finally
             {
-                Current.Returns(judge);
                 Thread.CurrentPrincipal = oldPrincipal;
+                Current.Returns(judge);
             }
         }
 
@@ -140,8 +143,8 @@ namespace MegaCityOne.Mvc
             }
             finally
             {
-                Current.Returns(judge);
                 Thread.CurrentPrincipal = oldPrincipal;
+                Current.Returns(judge);
             }
         }
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCityOne.Mvc", "MegaCity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCityOne.Mvc.Example", "MegaCityOne.Mvc.Example\MegaCityOne.Mvc.Example.csproj", "{291D40C9-075E-4C3B-A00D-3AE026304AFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCityOne.Mvc.Tests", "MegaCityOne.Mvc.Tests\MegaCityOne.Mvc.Tests.csproj", "{60D3676D-C62B-437A-8E4B-4CC3660747ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{291D40C9-075E-4C3B-A00D-3AE026304AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291D40C9-075E-4C3B-A00D-3AE026304AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{291D40C9-075E-4C3B-A00D-3AE026304AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D3676D-C62B-437A-8E4B-4CC3660747ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D3676D-C62B-437A-8E4B-4CC3660747ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D3676D-C62B-437A-8E4B-4CC3660747ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D3676D-C62B-437A-8E4B-4CC3660747ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
