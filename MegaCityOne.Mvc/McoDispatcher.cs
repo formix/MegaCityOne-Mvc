@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -126,7 +126,10 @@ namespace MegaCityOne.Mvc
         public static void Enforce(string law, params object[] arguments)
         {
             IPrincipal oldPrincipal = Thread.CurrentPrincipal;
-            Thread.CurrentPrincipal = HttpContext.Current.User;
+            if (HttpContext.Current != null)
+            {
+                Thread.CurrentPrincipal = HttpContext.Current.User;
+            }
             Judge judge = Current.Dispatch();
             try
             {
