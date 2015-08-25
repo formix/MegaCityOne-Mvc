@@ -184,3 +184,4 @@ FakesAssemblies/
 
 # vim temporary files
 *.swp
+/packages
