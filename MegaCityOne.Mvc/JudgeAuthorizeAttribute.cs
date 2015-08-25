@@ -66,7 +66,7 @@ namespace MegaCityOne.Mvc
 
             IPrincipal originalPrincipal = Thread.CurrentPrincipal;
             Thread.CurrentPrincipal = httpContext.User;
-            bool advisal = JudgeDispatcher.Advise(this.Law, HttpContext.Current);
+            bool advisal = McoDispatcher.Advise(this.Law, HttpContext.Current);
             Thread.CurrentPrincipal = originalPrincipal;
             return advisal;
         }

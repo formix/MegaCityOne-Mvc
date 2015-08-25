@@ -63,7 +63,6 @@
     <Content Include="App_Start\MegaCityOneActivator.cs.pp" />
     <Compile Include="McoAuthenticateAttribute.cs" />
     <Compile Include="JudgeAuthorizeAttribute.cs" />
-    <Compile Include="JudgeDispatcher.cs" />
     <Compile Include="McoDispatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="McoSession.cs" />

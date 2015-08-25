@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -17,9 +17,8 @@ namespace MegaCityOne.Mvc
     /// a new Judge on each call. The Dispatcher as a JudgePool. This class is 
     /// a singleton and cannot be instanciated. You must use the static 
     /// member Dispatcher.Current to use an instance of this class. This class
-    /// is thread safe. **DEPRECATED** Use JudgeDispatcher instead.
+    /// is thread safe.
     /// </summary>
-    [Obsolete("McoDispatcher is deprecated, use JudgeDispatcher instead.")]
     public sealed class McoDispatcher
     {
         #region Events
