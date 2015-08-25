@@ -12,10 +12,10 @@ namespace MegaCityOne.Mvc.Example
         /// </summary>
         public static void ApplicationStart()
         {
-            McoDispatcher.Current.Summon += McoDispatcher_Current_Summon;
+            JudgeDispatcher.Current.Summon += JudgeDispatcher_Current_Summon;
         }
 
-        static void McoDispatcher_Current_Summon(object source, JudgeSummonEventArgs e)
+        static void JudgeDispatcher_Current_Summon(object source, JudgeSummonEventArgs e)
         {
             // *** instanciate the Judge you need here. *** \\
             JudgeDredd judge = new JudgeDredd();

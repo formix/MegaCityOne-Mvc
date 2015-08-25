@@ -75,12 +75,12 @@
             <h3 class="panel-title">Actions</h3>
         </div>
         <div class="panel-body">
-            @if (McoDispatcher.Advise("CanCreateProject"))
+            @if (JudgeDispatcher.Advise("CanCreateProject"))
             {
                 @Html.ActionLink("Create Project", "CreateProject", "Home");<br />
                 ViewBag.ActionAvailable = true;
             }
-            @if (McoDispatcher.Advise("CanManageUsers"))
+            @if (JudgeDispatcher.Advise("CanManageUsers"))
             {
                 @Html.ActionLink("Manage Users", "ManageUsers", "Home");<br />
                 ViewBag.ActionAvailable = true;
