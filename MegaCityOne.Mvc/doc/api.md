@@ -129,7 +129,7 @@ Dispatch this Advise call to an available Judge in the pool.
 | Name | Description |
 | ---- | ----------- |
 | law | *System.String*<br>The law to Advise. |
-| arguments | *System.Object[]*<br>Optionnal arguments provided to help the judge to give his advice. By default, the first argument is always the HttpContext.Current. |
+| arguments | *System.Object[]*<br>Optionnal arguments provided to help the judge to give his advice. By default, the last argument is always the HttpContext.Current. |
 
 
 #### Returns
@@ -159,7 +159,7 @@ Dispatch this Enforce call to an available Judge in the pool.
 | Name | Description |
 | ---- | ----------- |
 | law | *System.String*<br>The law to Enforce. |
-| arguments | *System.Object[]*<br>Optionnal arguments provided to help the judge to enforce the law. By default, the first argument is always the HttpContext.Current. |
+| arguments | *System.Object[]*<br>Optionnal arguments provided to help the judge to enforce the law. By default, the last argument is always the HttpContext.Current. |
 
 ### OnSummon(e)
 
