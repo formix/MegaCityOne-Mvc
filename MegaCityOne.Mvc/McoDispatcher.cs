@@ -102,14 +102,12 @@ namespace MegaCityOne.Mvc
             {
                 Thread.CurrentPrincipal = HttpContext.Current.User;
             }
+            
             Judge judge = Current.Dispatch();
             try
             {
-                object[] args = new object[arguments.Length + 1];
-                args[0] = HttpContext.Current;
-                Array.Copy(arguments, 0, args, 1, arguments.Length);
-                bool advisal = judge.Advise(law, args);
-                return advisal;
+                object[] args = AppendHttpContext(arguments);
+                return judge.Advise(law, args);
             }
             finally
             {
@@ -117,7 +115,6 @@ namespace MegaCityOne.Mvc
                 Current.Returns(judge);
             }
         }
-
 
         /// <summary>
         /// Dispatch this Enforce call to an available Judge in the pool.
@@ -133,12 +130,11 @@ namespace MegaCityOne.Mvc
             {
                 Thread.CurrentPrincipal = HttpContext.Current.User;
             }
+            
             Judge judge = Current.Dispatch();
             try
             {
-                object[] args = new object[arguments.Length + 1];
-                args[0] = HttpContext.Current;
-                Array.Copy(arguments, 0, args, 1, arguments.Length);
+                object[] args = AppendHttpContext(arguments);
                 judge.Enforce(law, args);
             }
             finally
@@ -146,6 +142,14 @@ namespace MegaCityOne.Mvc
                 Thread.CurrentPrincipal = oldPrincipal;
                 Current.Returns(judge);
             }
+        }
+
+        private static object[] AppendHttpContext(object[] arguments)
+        {
+            object[] args = new object[arguments.Length + 1];
+            Array.Copy(arguments, 0, args, 0, arguments.Length);
+            args[args.Length - 1] = HttpContext.Current;
+            return args;
         }
 
         /// <summary>
