@@ -92,7 +92,7 @@ namespace MegaCityOne.Mvc
         /// </summary>
         /// <param name="law">The law to Advise.</param>
         /// <param name="arguments">Optionnal arguments provided to help the 
-        /// judge to give his advice. By default, the first argument is 
+        /// judge to give his advice. By default, the last argument is 
         /// always the HttpContext.Current.</param>
         /// <returns>True is the law is respected, false otherwise.</returns>
         public static bool Advise(string law, params object[] arguments)
@@ -121,7 +121,7 @@ namespace MegaCityOne.Mvc
         /// </summary>
         /// <param name="law">The law to Enforce.</param>
         /// <param name="arguments">Optionnal arguments provided to help the 
-        /// judge to enforce the law. By default, the first argument is 
+        /// judge to enforce the law. By default, the last argument is 
         /// always the HttpContext.Current.</param>
         public static void Enforce(string law, params object[] arguments)
         {
